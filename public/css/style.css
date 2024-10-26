@@ -1,25 +1,30 @@
 .btn-theme {
     color: #fff;
     background-color: #1d7383 !important;
+    font-size: 16px;
 }
 
 .btn-theme:hover {
     color: #fff !important;
 }
 
-/* Header Menu */
-.header-menu {
+.text-main-color {
+    color: #1d7383;
+}
+
+/* App Bar */
+.app-bar {
     padding: 15px !important;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
     background-color: #1d7383;
 }
 
-.header-menu a {
+.app-bar a {
     color: #fff;
 }
 
 
-.bottom-menu {
+.bottom-bar {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -27,17 +32,20 @@
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
     background-color: #1d7383;
 }
-.bottom-menu a {
+.bottom-bar a {
     text-align: center;
     padding: 10px 15px;
 }
 
-.bottom-menu a p {
+.bottom-bar a p {
     font-size: 12px;
     text-transform: uppercase;
 }
 
 /* Side Bar */
+#show-sidebar {
+    font-size: 20px;
+}
 @keyframes swing {
     0% {
       transform: rotate(0deg);
@@ -445,7 +453,8 @@
   /*-----------------------------chiller-theme-------------------------------------------------*/
 
   .chiller-theme .sidebar-wrapper {
-      background: #31353D;
+      /* background: #31353D; */
+      background: black;
   }
 
   .chiller-theme .sidebar-wrapper .sidebar-header,
@@ -467,7 +476,7 @@
   .chiller-theme .sidebar-wrapper .sidebar-brand>a,
   .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
   .chiller-theme .sidebar-footer>a {
-      color: #818896;
+      color: white;
   }
 
   .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
@@ -475,7 +484,7 @@
   .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
   .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
   .chiller-theme .sidebar-footer>a:hover i {
-      color: #b8bfce;
+      color: #1d7383;
   }
 
   .page-wrapper.chiller-theme.toggled #close-sidebar {
@@ -506,7 +515,7 @@
   }
 
   .chiller-theme .sidebar-footer {
-      background: #3a3f48;
+      background: black;
       box-shadow: 0px -1px 5px #282c33;
       border-top: 1px solid #464a52;
   }

@@ -18,4 +18,5 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/', 'PageController@home');
+    Route::resource('employees', EmployeeController::class);
 });

@@ -1,5 +1,5 @@
 @extends('layouts.app_nav')
-@section('title', 'Employee Management System')
+@section('title', 'HR Management System')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -18,7 +18,8 @@
     @yield('extra_css')
 </head>
 
-<body>
+<body style="background-image: url('{{ asset('img/cover-photo.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
     <div id="app">
         <main class="py-4">
             @yield('content')
