@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use DataTables;
 
 class EmployeeController extends Controller
 {
@@ -18,6 +19,39 @@ class EmployeeController extends Controller
         return view('employee.index', compact('employees'));
     }
 
+    public function getData(Request $request)
+    {
+        if($request->ajax()) {
+            $employees = User::with('department');
+            return Datatables::of($employees)
+                ->addIndexColumn()
+                ->setRowClass('{{ $id % 2 == 0 ? "alert-success" : "alert-danger" }}')
+                ->setRowId(function($user) {
+                    return $user->id;
+                })
+                ->addColumn('department_name', function ($row) {
+                    return $row->department ? $row->department->title : '-';
+                })
+                ->addColumn('created_at', function ($row) {
+                // Format the creation date
+                return $row->created_at ? $row->created_at->format('Y-m-d H:i:s') : '-';
+                })
+                ->editColumn('is_present', function ($row) {
+                    if($row->is_present) {
+                        return '<span class="badge badge-success">Present</span>';
+                    } else {
+                        return '<span class="badge badge-danger">Leave</span>';
+                    }
+                })
+                ->addColumn('action', function ($row) {
+                    return view('components.user-actions', compact('row'))->render();
+                })
+                ->rawColumns(['action','is_present'])
+                ->make(true);
+        }
+        return view('employees.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +59,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee.create');
     }
 
     /**

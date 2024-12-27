@@ -13,7 +13,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 </head>
 
 <body>
@@ -57,7 +63,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('employees.index') }}">
                                 <i class="fa fa-users"></i>
                                 <span>Employee Management</span>
                             </a>
@@ -113,9 +119,9 @@
                             <i class="fas fa-home"></i>
                             <p class="mb-0">Home</p>
                         </a>
-                        <a href="" class="text-white">
-                            <i class="fas fa-home"></i>
-                            <p class="mb-0">Home</p>
+                        <a href="{{ route('employees.index') }}" class="text-white">
+                            <i class="fas fa-users"></i>
+                            <p class="mb-0">Employees</p>
                         </a>
                         <a href="" class="text-white">
                             <i class="fas fa-home"></i>
@@ -133,7 +139,9 @@
 
     <!-- MDB -->
     {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         jQuery(function($) {
             $(".sidebar-dropdown > a").click(function() {
@@ -168,6 +176,7 @@
             });
         });
     </script>
+    @yield('external_scripts')
 </body>
 
 </html>

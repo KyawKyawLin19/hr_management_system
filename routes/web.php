@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\EmployeeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,9 @@ Auth::routes();
 // Auth::routes(['register'=> false]);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', 'PageController@home');
+    Route::get('/', [PageController::class, 'home']);
+    Route::get('employees/get', [EmployeeController::class, 'getData'])->name('employees.data');
+    Route::get('employee/edit', [EmployeeController::class, 'getData'])->name('employee.edit');
+    Route::get('employee/destroy', [EmployeeController::class, 'getData'])->name('employee.destroy');
     Route::resource('employees', EmployeeController::class);
 });
